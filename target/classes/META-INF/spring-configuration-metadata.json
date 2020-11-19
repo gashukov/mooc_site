@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "google.recaptcha.key",
+      "type": "com.baeldung.captcha.CaptchaSettings",
+      "sourceType": "com.baeldung.captcha.CaptchaSettings"
+    }
+  ],
+  "properties": [
+    {
+      "name": "google.recaptcha.key.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.baeldung.captcha.CaptchaSettings"
+    },
+    {
+      "name": "google.recaptcha.key.secret-v3",
+      "type": "java.lang.String",
+      "sourceType": "com.baeldung.captcha.CaptchaSettings"
+    },
+    {
+      "name": "google.recaptcha.key.site",
+      "type": "java.lang.String",
+      "sourceType": "com.baeldung.captcha.CaptchaSettings"
+    },
+    {
+      "name": "google.recaptcha.key.site-v3",
+      "type": "java.lang.String",
+      "sourceType": "com.baeldung.captcha.CaptchaSettings"
+    },
+    {
+      "name": "google.recaptcha.key.threshold",
+      "type": "java.lang.Float",
+      "sourceType": "com.baeldung.captcha.CaptchaSettings"
+    }
+  ],
+  "hints": []
+}

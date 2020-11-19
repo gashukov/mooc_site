@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-security-login-and-registration:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>spring-security-login-and-registration</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="spring-security-login-and-registration.war">
+      <element id="artifact" artifact-name="spring-security-login-and-registration:war exploded" />
+    </root>
+  </artifact>
+</component>

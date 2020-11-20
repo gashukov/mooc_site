@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Поиск курсов</title>
+</head>
+<body>
+<div align="center">
+
+    <h1>Поиск курсов</h1>
+
+<!--    <a href="new">Create New Product</a>-->
+
+    <br/><br/>
+    <form th:action="@{/courses}">
+        <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Искать" />
+        &nbsp;
+        <input type="button" value="Очистить" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <br/><br/>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Описание</th>
+
+<!--            <th>Actions</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${listCourses}">
+            <td th:text="${course.id}">Course ID</td>
+            <td th:text="${course.title}">Title</td>
+            <td th:text="${course.description}">Description</td>
+<!--            <td>-->
+<!--                <a th:href="@{'/edit/' + ${product.id}}">Edit</a>-->
+<!--                &nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--                <a th:href="@{'/delete/' + ${product.id}}">Delete</a>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    function clearSearch() {
+        window.location = "[[@{/courses}]]";
+    }
+</script>
+</body>
+</html>

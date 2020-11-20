@@ -5,9 +5,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import com.baeldung.persistence.dao.CourseRepository;
 import com.baeldung.persistence.dao.PrivilegeRepository;
 import com.baeldung.persistence.dao.RoleRepository;
 import com.baeldung.persistence.dao.UserRepository;
+import com.baeldung.persistence.model.Course;
 import com.baeldung.persistence.model.Privilege;
 import com.baeldung.persistence.model.Role;
 import com.baeldung.persistence.model.User;
@@ -28,6 +30,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private CourseRepository courseRepository;
 
     @Autowired
     private PrivilegeRepository privilegeRepository;
@@ -58,7 +63,20 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         // == create initial user
         createUserIfNotFound("test@test.com", "Test", "Test", "test", new ArrayList<>(Arrays.asList(adminRole)));
 
+        createCourse("Курс от Samsung", "Великолепный курс от Samsung по программированию на Java");
+        createCourse("Курс от IBM", "Великолепный курс от IBM по программированию на C++");
+        createCourse("Курс от NSTU", "Великолепный курс от NSTU по программированию на Brainfuck");
+        createCourse("Курс от Google", "Великолепный курс от Google по программированию на C#");
+
         alreadySetup = true;
+    }
+
+    @Transactional
+    Course createCourse(final String title, final String desc) {
+        Course course = new Course();
+        course.setTitle(title);
+        course.setDescription(desc);
+        return courseRepository.save(course);
     }
 
     @Transactional

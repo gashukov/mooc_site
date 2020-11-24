@@ -13,6 +13,7 @@ import com.baeldung.persistence.model.Course;
 import com.baeldung.persistence.model.Privilege;
 import com.baeldung.persistence.model.Role;
 import com.baeldung.persistence.model.User;
+import com.baeldung.service.IndexingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -39,6 +40,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private IndexingService indexingService;
 
     // API
 
@@ -68,7 +72,13 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         createCourse("Курс от NSTU", "Великолепный курс от NSTU по программированию на Brainfuck");
         createCourse("Курс от Google", "Великолепный курс от Google по программированию на C#");
 
+        for (int i = 0; i < 30; i++) {
+            createCourse("Курс от Google" + i, "Великолепный курс от Google по программированию на C#" + i);
+        }
+
         alreadySetup = true;
+
+        indexingService.initiateIndexing();
     }
 
     @Transactional

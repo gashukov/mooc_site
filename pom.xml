@@ -151,6 +151,23 @@
 			<version>5.11.6.Final</version>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>de.lars-sh</groupId>-->
+<!--			<artifactId>lombok-annotations</artifactId>-->
+<!--			<version>1.18.16</version>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.4.0.GA</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

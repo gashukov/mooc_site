@@ -44,6 +44,12 @@
         </tr>
         </tbody>
     </table>
+    <a th:if="${pageNumbers.size() > 1}" class="pagination" th:each="pageNumber : ${pageNumbers}">
+        <a th:if="${(pageNumber <=7 && currentPage <=4) || (pageNumber >= pageNumbers.size()-7 && currentPage >= pageNumbers.size()-4) || (currentPage > 4 && currentPage < pageNumbers.size()-4 && T(java.lang.Math).abs(pageNumber - currentPage) < 4)}" th:href="@{/courses(page=${pageNumber}, keyword=${keyword})}"
+           th:text="${pageNumber}"
+                       th:class="${pageNumber == currentPage} ? active"></a>
+
+    </a>
 </div>
 <script type="text/javascript">
     function clearSearch() {
